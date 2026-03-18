@@ -75,6 +75,124 @@ http://127.0.0.1:8000/docs
 
 ---
 
+## API Endpoints
+
+### General
+
+```http
+GET /
+```
+
+---
+
+### Movies
+
+```http
+GET /movies
+GET /movies/{movie_id}
+GET /movies/summary
+GET /movies/filter
+GET /movies/search
+GET /movies/sort
+GET /movies/page
+GET /movies/browse
+```
+
+---
+
+### Bookings
+
+```http
+GET /bookings
+POST /bookings
+GET /bookings/active
+GET /bookings/search
+GET /bookings/sort
+GET /bookings/page
+```
+
+---
+
+### Movie Management (CRUD)
+
+```http
+POST /movies
+PUT /movies/{movie_id}
+DELETE /movies/{movie_id}
+```
+
+---
+
+### Seat Hold Workflow
+
+```http
+POST /seat-hold
+GET /seat-hold
+POST /seat-confirm/{hold_id}
+DELETE /seat-release/{hold_id}
+```
+
+---
+
+## Endpoint Mapping
+
+### General
+
+| Method | Endpoint | Description               |
+| ------ | -------- | ------------------------- |
+| GET    | `/`      | Returns a welcome message |
+
+---
+
+### Movies
+
+| Method | Endpoint             | Description                                                    |
+| ------ | -------------------- | -------------------------------------------------------------- |
+| GET    | `/movies`            | Retrieve all movies with total count and seat availability     |
+| GET    | `/movies/{movie_id}` | Retrieve a specific movie by ID                                |
+| GET    | `/movies/summary`    | Get summary statistics (pricing, genres, total seats)          |
+| GET    | `/movies/filter`     | Filter movies by genre, language, price, and seat availability |
+| GET    | `/movies/search`     | Search movies by keyword                                       |
+| GET    | `/movies/sort`       | Sort movies by price, title, duration, or seats                |
+| GET    | `/movies/page`       | Paginate movie results                                         |
+| GET    | `/movies/browse`     | Combined search, filter, sort, and pagination                  |
+
+---
+
+### Bookings
+
+| Method | Endpoint           | Description                              |
+| ------ | ------------------ | ---------------------------------------- |
+| GET    | `/bookings`        | Retrieve all bookings with total revenue |
+| POST   | `/bookings`        | Create a new booking                     |
+| GET    | `/bookings/active` | Retrieve active bookings                 |
+| GET    | `/bookings/search` | Search bookings by customer name         |
+| GET    | `/bookings/sort`   | Sort bookings by total cost or seats     |
+| GET    | `/bookings/page`   | Paginate booking results                 |
+
+---
+
+### Movie Management (CRUD)
+
+| Method | Endpoint             | Description                                   |
+| ------ | -------------------- | --------------------------------------------- |
+| POST   | `/movies`            | Add a new movie                               |
+| PUT    | `/movies/{movie_id}` | Update ticket price or seat availability      |
+| DELETE | `/movies/{movie_id}` | Delete a movie (restricted if bookings exist) |
+
+---
+
+### Seat Hold Workflow
+
+| Method | Endpoint                  | Description                                 |
+| ------ | ------------------------- | ------------------------------------------- |
+| POST   | `/seat-hold`              | Temporarily hold seats                      |
+| GET    | `/seat-hold`              | Retrieve all seat holds                     |
+| POST   | `/seat-confirm/{hold_id}` | Confirm held seats and create booking       |
+| DELETE | `/seat-release/{hold_id}` | Release held seats and restore availability |
+
+---
+
 ## Project Structure
 
 ```
