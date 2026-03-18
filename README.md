@@ -175,11 +175,12 @@ DELETE /seat-release/{hold_id}
 ### Movie Management (CRUD)
 
 | Method | Endpoint             | Description                                   |
-| ------ | -------------------- | --------------------------------------------- |
-| POST   | `/movies`            | Add a new movie                               |
-| PUT    | `/movies/{movie_id}` | Update ticket price or seat availability      |
-| DELETE | `/movies/{movie_id}` | Delete a movie (restricted if bookings exist) |
-
+|--------|--------------------|-----------------------------------------------|
+| GET    | `/movies`           | Retrieve all movies                           |
+| GET    | `/movies/{movie_id}`| Retrieve a specific movie by ID               |
+| POST   | `/movies`           | Add a new movie                               |
+| PUT    | `/movies/{movie_id}`| Update ticket price or seat availability      |
+| DELETE | `/movies/{movie_id}`| Delete a movie (restricted if bookings exist) |
 ---
 
 ### Seat Hold Workflow
